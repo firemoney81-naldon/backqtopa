@@ -1,23 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>보험사 직원은 절대 안 알려주는 자동차보험 가격 비교의 비밀</title>
+ 
+  
+  
+  <style>
+        :root {
+            --bg-color: #f8faff;
+            --primary-color: #4e73df;
+            --accent-color: #ff6b6b;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            --card-bg: #ffffff;
+            /* 카테고리별 색상 */
+            --cat1: #e3f2fd; --cat2: #f3e5f5; --cat3: #e8f5e9; --cat4: #fff3e0;
+            --cat5: #fce4ec; --cat6: #e0f2f1; --cat7: #efebe9; --cat8: #f1f8e9;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .category-section {
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .category-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-title {
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-left: 5px solid var(--primary-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .link-card:hover {
+            background: #f1f3f5;
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .link-title {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+
+        .link-desc {
+            display: block;
+            font-size: 0.9rem;
+            color: #636e72;
+            word-break: keep-all;
+        }
+
+        /* 카테고리별 배경색 */
+        .cat-1 { background-color: var(--cat1); border-top: 8px solid #2196f3; }
+        .cat-2 { background-color: var(--cat2); border-top: 8px solid #9c27b0; }
+        .cat-3 { background-color: var(--cat3); border-top: 8px solid #4caf50; }
+        .cat-4 { background-color: var(--cat4); border-top: 8px solid #ff9800; }
+        .cat-5 { background-color: var(--cat5); border-top: 8px solid #e91e63; }
+        .cat-6 { background-color: var(--cat6); border-top: 8px solid #009688; }
+        .cat-7 { background-color: var(--cat7); border-top: 8px solid #795548; }
+        .cat-8 { background-color: var(--cat8); border-top: 8px solid #8bc34a; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>보험사 직원은 절대 안 알려주는 자동차보험 가격 비교의 비밀</h1>
+</header>
+
+<div class="container" id="main-container">
+    </div>
+
+<script>
+    const rawData = [
+        { name: "자차보험가입", url: "http://directcarpromota.cafe24.com/", desc: "내 차를 위한 완벽한 보호막, 사고 시 내 수리비 걱정 끝!" },
+        { name: "자동차종합보험가격", url: "http://directcarpromotb.cafe24.com/", desc: "의무 보험 그 이상! 든든한 보장 범위를 합리적인 가격에." },
+        { name: "첫자동차보험료", url: "http://directcarpromoti.cafe24.com/", desc: "생애 첫 차의 설렘, 보험료 폭탄 피하는 특급 노하우 대공개." },
+        { name: "다이렉트자동차보험비교견적", url: "http://m.directcarpromotq.cafe24.com/", desc: "손가락 하나로 끝내는 전국 보험사 통합 가격 비교." },
+        { name: "자동차보험가족한정범위", url: "https://directcarpromots.cafe24.com/", desc: "우리 가족 어디까지 보장될까? 복잡한 범위를 명쾌하게 정리." },
+        { name: "자동차책임보험가격", url: "https://directcarpromotv.cafe24.com/", desc: "꼭 들어야 한다면 가장 가성비 좋은 선택은 무엇일까요?" },
+        { name: "자동차보험 다이렉트 비교", url: "https://directcarpromotw.cafe24.com/", desc: "설계사 수수료 없이, 다이렉트로 더 가볍게 준비하세요." },
+        { name: "자동차보험료계산", url: "https://bohumpromotiona.cafe24.com/", desc: "내 조건에 맞는 실제 보험료, 1분 만에 숫자로 확인하기." },
+        { name: "자동차보험할증기준", url: "https://bohumpromotionb.cafe24.com/", desc: "사고 나면 무조건 오를까? 등급별 할증 시스템의 모든 것." },
+        { name: "자동차보험료1년", url: "https://bohumpromotionc.cafe24.com/", desc: "연간 유지비의 핵심, 1년치 보험료 미리 계산해보세요." },
+        { name: "20대자동차보험료", url: "https://bohumpromotione.cafe24.com/", desc: "사회초년생을 위한 눈물 쏙 빼는 할인 특약 찾는 법." },
+        { name: "자동차보험추천", url: "https://bohumpromotiong.cafe24.com/", desc: "전문가들이 입을 모아 말하는 '가장 알찬' 보험사 순위." },
+        { name: "자동차보험 만26세", url: "https://bohumpromotionk.cafe24.com/", desc: "보험료가 확 낮아지는 기적의 나이, 만 26세 맞춤형." },
+        { name: "전기차보험료", url: "https://bohumpromotiono.cafe24.com/", desc: "조용한 혁명 전기차, 전용 부품과 배터리 보장 특화 설계." },
+        { name: "자동차보험 경력인정", url: "https://bohumpromotionr.cafe24.com/", desc: "군 운전병, 관공서 운전 경력으로 보험료 깎는 비법." },
+        { name: "테슬라 모델Y 보험료", url: "https://directupromotiond.withusdone.com/", desc: "오토파일럿만큼 스마트한 보험료 관리, 모델Y 전용." },
+        { name: "자동차 보험 자녀 할인", url: "https://directupromotionn.withusdone.com/", desc: "아이가 있다면 당연히 받아야 할 '부모님 응원' 할인." },
+        { name: "중고차보험료", url: "https://directupromotionp.withusdone.com/", desc: "새 차보다 까다로운 중고차 보험, 차량 가액 산정의 비밀." },
+        { name: "아반떼 보험료", url: "https://directupromotionz.withusdone.com/", desc: "국민차 아반떼, 가장 대중적이지만 가장 실속 있는 구성." },
+        { name: "경차자동차보험", url: "https://directxpromotionb.withusdone.com/", desc: "작지만 강한 혜택, 경차라서 누리는 세제 혜택과 보험 할인." },
+        { name: "제네시스보험료", url: "https://directxpromotiong.withusdone.com/", desc: "프리미엄 세단에 걸맞은 고품격 보장 서비스 가이드." },
+        { name: "모닝보험료", url: "https://directxpromotioni.withusdone.com/", desc: "도심 주행의 강자 모닝, 사고 시 수리비 부담을 최소화." },
+        { name: "테슬라보험", url: "https://directxpromotionl.withusdone.com/", desc: "첨단 기술의 집약체 테슬라를 위한 특별 보험 솔루션." },
+        { name: "G80보험료", url: "https://directxpromotions.withusdone.com/", desc: "성공의 상징 G80, 품격은 높이고 보험료는 실속 있게." },
+        { name: "캠핑카보험료", url: "https://caropromotiona.withusdone.com/", desc: "낭만 가득 캠핑카, 이동식 집을 위한 특수 보장 내용." },
+        { name: "BMW5시리즈보험료", url: "http://caropromotiong.withusdone.com/", desc: "수입차 베스트셀러 5시리즈, 합리적인 수리비 보장 찾기." },
+        { name: "스포츠카보험료", url: "https://caropromotionm.withusdone.com/", desc: "질주 본능을 지원하는 든든한 보험, 위험 등급 관리 팁." },
+        { name: "벤츠E클래스보험료", url: "https://carmpromotione.withusdone.com/", desc: "삼각별의 가치를 지키는 프리미엄 케어 프로그램." },
+        { name: "EV6보험료", url: "https://carmpromotionf.withusdone.com/", desc: "기아의 야심작 EV6, 전기차 전용 긴급출동 서비스 확인." },
+        { name: "레이자동차보험료", url: "https://carmpromotiono.withusdone.com/", desc: "공간 활용 끝판왕 레이, 경차 혜택에 안전을 더하다." },
+        { name: "토레스보험료", url: "https://carmpromotionq.withusdone.com/", desc: "강인한 토레스의 디자인만큼 튼튼한 사고 처리 보장." },
+        { name: "캐스퍼보험료", url: "https://carmpromotions.withusdone.com/", desc: "귀여운 캐스퍼를 지켜주는 든든한 가디언 보험." },
+        { name: "자동차보험블랙박스할인", url: "https://carnpromotiond.withusdone.com/", desc: "눈은 두 개지만 블랙박스는 하나! 장착만 해도 할인." },
+        { name: "포르쉐보험료", url: "https://carnpromotionk.withusdone.com/", desc: "꿈의 드림카 포르쉐, 사고 시 자산 가치 하락 방지 특약." },
+        { name: "쏘렌토하이브리드보험료", url: "https://carvpromotions.withusdone.com/", desc: "연비와 환경 모두 잡는 하이브리드 맞춤 보장 설계." },
+        { name: "화물차보험료", url: "https://carvpromotiono.withusdone.com/", desc: "생업을 책임지는 화물차, 사고 시 소득 상실 보전까지." },
+        { name: "외제차보험료", url: "https://carvpromotionz.withusdone.com/", desc: "비싼 수리비와 렌트비, 외제차 전용 대물 한도 설정법." },
+        { name: "운전병보험할인", url: "https://directcarunmeb.withusdone.com/", desc: "나라 지키느라 잡았던 핸들, 보험료 할인으로 돌려받으세요." },
+        { name: "만19세 자동차보험", url: "https://directcarunmed.withusdone.com/", desc: "가장 뜨거운 나이, 가장 차가운 보험료를 위한 전략적 가입." },
+        { name: "BMW3시리즈보험료", url: "https://carmpromotionr.withusdone.com/", desc: "역동적인 3시리즈 오너를 위한 스포츠 드라이빙 보장." },
+        { name: "아이오닉6보험료", url: "https://carvpromotionc.withusdone.com/", desc: "공기역학적 디자인만큼 매끄러운 보험금 지급 서비스." },
+        { name: "제네시스GV80보험료", url: "https://carmpromotionz.withusdone.com/", desc: "패밀리 SUV의 정점, 가족 모두를 위한 프리미엄 안전망." },
+        { name: "자동차보험부부한정", url: "https://carnpromotionc.withusdone.com/", desc: "둘이서 하나로! 보험료는 낮추고 보장은 같이 받는 부부 특약." },
+        { name: "30대자동차보험료", url: "https://directcarunmer.withusdone.com/", desc: "가장 경제 활동이 활발한 시기, 자산 관리로서의 보험 선택." },
+        { name: "중고차자동차보험", url: "https://directxpromotionf.withusdone.com/", desc: "이전 주인은 잊으세요, 이제 내 차에 맞는 최적화 보험." },
+        { name: "팰리세이드보험", url: "https://caropromotiont.withusdone.com/", desc: "광활한 실내만큼 넓은 보장 범위, 다자녀 가구 필수 체크." },
+        { name: "티볼리보험료", url: "https://carmpromotionu.withusdone.com/", desc: "스타일리시한 주행을 완성하는 합리적인 보험 플랜." },
+        { name: "싼타페보험료", url: "https://carnpromotiono.withusdone.com/", desc: "오랜 시간 사랑받은 싼타페, 세대별 최적 보험료 비교." },
+        { name: "K8 하이브리드 보험료", url: "https://carvpromotiona.withusdone.com/", desc: "세련된 하이브리드 라이프를 위한 전용 부품 보상 안내." },
+        { name: "트래버스보험료", url: "https://carmpromotiona.withusdone.com/", desc: "거대한 존재감 트래버스, 대형 SUV 사고 시 대응 요령." },
+        { name: "미니쿠퍼보험료", url: "https://directxpromotionr.withusdone.com/", desc: "개성 넘치는 미니 오너들을 위한 톡톡 튀는 할인 혜택." },
+        { name: "자동차보험요율", url: "https://carvpromotionw.withusdone.com/", desc: "내 점수는 몇 점? 보험사가 나를 평가하는 기준 파헤치기." },
+        { name: "스파크자동차보험료", url: "https://caropromotionp.withusdone.com/", desc: "작지만 야무진 스파크, 경제성을 극대화하는 가입 방법." },
+        { name: "폭스바겐 제타 보험료", url: "https://carmpromotionk.withusdone.com/", desc: "독일차의 실용성, 제타를 위한 스마트한 보험료 절감책." },
+        { name: "카마로보험료", url: "https://carnpromotionr.withusdone.com/", desc: "머슬카의 심장소리, 사고 시에도 심장이 뛰지 않게 대비." },
+        { name: "자차보험할증", url: "https://carvpromotiony.withusdone.com/", desc: "사고 수리 후 보험료 폭탄 방지하는 현명한 면책금 설정." },
+        { name: "아이오닉5보험료", url: "https://carvpromotionu.withusdone.com/", desc: "미래형 모빌리티 아이오닉5를 위한 V2L 보장 확인." },
+        { name: "자동차보험 만기", url: "https://directupromotionq.withusdone.com/", desc: "놓치면 과태료! 갱신 시점을 기회로 만드는 갈아타기 기술." },
+        { name: "실시간자동차보험견적", url: "https://directupromotionx.withusdone.com/", desc: "기다림은 끝! 지금 바로 내 화면에 뜨는 정확한 견적." },
+        { name: "K5보험료", url: "https://directxpromotionk.withusdone.com/", desc: "젊은 감각 K5 오너들이 가장 많이 선택한 보험 특약은?" },
+        { name: "G70보험료", url: "https://carnpromotions.withusdone.com/", desc: "스포츠 세단의 퍼포먼스를 완성하는 완벽한 보장 체계." },
+        { name: "투싼보험료", url: "https://carnpromotionp.withusdone.com/", desc: "도심과 아웃도어를 넘나드는 투싼을 위한 전천후 보험." },
+        { name: "수입차보험료", url: "https://directupromotiona.withusdone.com/", desc: "국산차와는 다르다! 수입차 전용 할증과 할인 포인트." },
+        { name: "자동차보험료 할부", url: "https://directupromotiont.withusdone.com/", desc: "목돈 부담은 NO, 무이자 할부 혜택 보험사 총정리." },
+        { name: "제네시스G70보험료", url: "https://carnpromotionu.withusdone.com/", desc: "콤팩트 럭셔리의 정석, 작지만 강한 보상 서비스를 누리세요." },
+        { name: "렉서스ES300H보험료", url: "https://carmpromotionl.withusdone.com/", desc: "정숙함의 끝판왕, 조용한 주행만큼 편안한 사고 처리." },
+        { name: "QM6보험료", url: "https://carmpromotionn.withusdone.com/", desc: "LPe SUV의 선두주자, 연료 특성에 맞는 보장 내용." },
+        { name: "벤츠보험료", url: "https://carnpromotionn.withusdone.com/", desc: "The Best or Nothing. 최고의 차에 어울리는 최상의 보험." },
+        { name: "쏘나타보험료", url: "http://carmpromotionv.withusdone.com/", desc: "역사와 전통의 쏘나타, 세대별 감가상각을 고려한 가입." },
+        { name: "자동차보험 신규", url: "https://bohumpromotionl.cafe24.com/", desc: "백지상태에서 시작하는 첫 보험, 첫 단추를 잘 끼우는 법." },
+        { name: "팰리세이드보험료", url: "https://carmpromotiond.withusdone.com/", desc: "대가족 이동도 걱정 없는 광범위 인적 사고 보장 특약." },
+        { name: "벨로스터 N 보험료", url: "https://carvpromotionj.withusdone.com/", desc: "서킷 위의 강자, 고성능 펀카를 위한 현실적인 보험 조언." },
+        { name: "렉스턴스포츠 칸 보험료", url: "https://carvpromotionr.withusdone.com/", desc: "오프로드의 왕, 거친 지형에서도 안심할 수 있는 파손 보장." },
+        { name: "자동차보험비교견적사이트", url: "https://bohumpromotionm.cafe24.com/", desc: "정보의 바다 속에서 진짜 저렴한 곳을 찾는 등대 같은 곳." },
+        { name: "자동차보험조회", url: "https://bohumpromotions.cafe24.com/", desc: "내 보험 정보 어디 있나? 한 번의 클릭으로 싹 다 찾아보기." },
+        { name: "전기차보험", url: "https://directupromotioni.withusdone.com/", desc: "배터리 수리비 걱정 마세요, 전기차 오너들만의 특권 보장." },
+        { name: "차보험계산", url: "https://directupromotionj.withusdone.com/", desc: "군더더기 없는 계산기, 딱 필요한 정보만 입력하고 결과 확인." },
+        { name: "카니발보험료", url: "https://directxpromotiona.withusdone.com/", desc: "패밀리카의 대명사, 온 가족 안심 여행을 위한 든든한 보험." },
+        { name: "아우디A6보험료", url: "https://carnpromotiont.withusdone.com/", desc: "세련된 디자인만큼 깔끔한 보상 처리, 아우디 오너 필독." },
+        { name: "쏘렌토보험료", url: "https://carnpromotionw.withusdone.com/", desc: "SUV 판매 1위의 비결, 보험료마저 매력적인 이유 확인." }
+    ];
+
+    const categories = [
+        "🚗 초보 & 생애 첫 보험",
+        "💡 다이렉트 & 비교 견적",
+        "⚡ 전기차 & 테슬라 전용",
+        "👨‍👩‍👧‍👦 가족 & 연령대별 맞춤",
+        "👑 프리미엄 & 수입차 세단",
+        "🚐 SUV & 캠핑 & 화물",
+        "📉 할인 특약 & 경력 인정",
+        "🏷️ 차종별 실속 견적"
+    ];
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function renderContent() {
+        const container = document.getElementById('main-container');
+        shuffleArray(rawData);
+        
+        // 8개 섹션 생성
+        categories.forEach((catName, index) => {
+            const section = document.createElement('div');
+            section.className = `category-section cat-${index + 1}`;
+            
+            const title = document.createElement('div');
+            title.className = 'category-title';
+            title.innerText = catName;
+            section.appendChild(title);
+
+            // 각 섹션에 약 10개 내외의 랜덤 링크 배분
+            const startIdx = index * 10;
+            const endIdx = startIdx + 10;
+            const items = rawData.slice(startIdx, endIdx);
+
+            items.forEach(item => {
+                const card = document.createElement('a');
+                card.className = 'link-card';
+                card.href = item.url;
+                card.target = "_blank";
+                
+                const lTitle = document.createElement('span');
+                lTitle.className = 'link-title';
+                lTitle.innerText = item.name;
+
+                const lDesc = document.createElement('span');
+                lDesc.className = 'link-desc';
+                lDesc.innerText = item.desc;
+
+                card.appendChild(lTitle);
+                card.appendChild(lDesc);
+                section.appendChild(card);
+            });
+
+            container.appendChild(section);
+        });
+    }
+
+    window.onload = renderContent;
+</script>
+
+</body>
 </html>
